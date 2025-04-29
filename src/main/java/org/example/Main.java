@@ -14,15 +14,21 @@ public class Main {
     }
 
 
+    public static void bubbleSort(int[] nums) {
+        bubbleSort(nums,true);
+    }
     /**
      * sorts array of integers acsendingly
      *
      * @param nums input array
      */
-    public static void bubbleSort(int[] nums) {
+    public static void bubbleSort(int[] nums, boolean ascending) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length - 1 - i; j++) {
-                if (nums[j] > nums[j + 1]) {
+                boolean condition = ascending
+                        ? nums[j] > nums[j+1]
+                        : nums[j] < nums[j+1];
+                if (condition) {
                     int temp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = temp;
@@ -55,7 +61,7 @@ public class Main {
                 j--;
             }
 
-            nums[j+1] = key;
+            nums[j + 1] = key;
         }
 
     }
